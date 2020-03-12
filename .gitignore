@@ -3,4 +3,3 @@ dist/
 node_modules/
 build/
 package-lock.json
-mapping-ecommerce.txt

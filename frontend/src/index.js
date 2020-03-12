@@ -28,7 +28,10 @@ export default class Interface extends React.Component {
 			)
 		} else {
 			return (
-				<div> first movie: {this.state.movies[0].title} </div>
+				<div> 
+					first movie: {this.state.movies[0].title} <br />
+					second movie: {this.state.movies[1].title}
+				</div>
 			)
 		}
 	}
