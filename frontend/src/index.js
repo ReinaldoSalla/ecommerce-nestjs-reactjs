@@ -8,29 +8,30 @@ export default class Interface extends React.Component {
 	}
 
 	componentDidMount() {
-		return fetch("https://reactnative.dev/movies.json")
+		return fetch("http://localhost:3000/api/products")
 			.then(res => res.json())
 			.then(data => {
 				this.setState({
 					isLoading: false,
-					title: data.title,
-					description: data.title,
-					movies: data.movies
+					products: data
 				})
 			})
 			.catch(err => console.error(err));
 	}
 
 	render() {
-		if(this.state.isLoading) {
-			return (
-				<div>Loading</div>
-			)
+		if (this.state.isLoading) {
+			return <div>Loading content...</div>
 		} else {
+			const listItems = this.state.products.map(product => 
+				<li key={product.name}> 
+					{product.category} {product.subcategory} {product.name} {product.price} {product.available} {product.amount} {product.release} 
+				</li>
+			)
 			return (
-				<div> 
-					first movie: {this.state.movies[0].title} <br />
-					second movie: {this.state.movies[1].title}
+				<div>
+					<h1>Products</h1>
+					<ul>{listItems}</ul>
 				</div>
 			)
 		}
@@ -41,4 +42,3 @@ ReactDOM.render(
 	<Interface />,
 	document.getElementById("root")
 );
-
