@@ -18,28 +18,22 @@ export class ProductsService {
     return await this.productModel.find();
   }
 
-  // First method, with all @Body fields
-  public async postProduct(
-    category,
-    subcategory,
-    name,
-    price,
-    available,
-    amount,
-    release
-  ): Promise<Product> {
+  public async postProduct(productDto: ProductDto): Promise<Product> {
     const msg: string = `POST method for route ${routeApi}/products`;
     console.log(msg);
-    const newProduct = new this.productModel({
-      category,
-      subcategory,
-      name,
-      price,
-      available,
-      amount,
-      release
-    });
-    console.log("service");
-    return await newProduct.save()
+    const newProduct = new this.productModel(productDto);
+    return newProduct.save();
+  }
+
+  public async deleteProduct(id: string): Promise<void> {
+    const product = await this.productModel.deleteOne({_id: id});
+    if (product.n !== 0) {
+      const msg: string = `DELETE method for route ${routeApi}/products/${id}`;
+      console.log(msg);
+    } else {
+      const msg: string = `DELETE method for nonexistent id: ${id}`;
+      console.log(msg);
+      throw new NotFoundException(`Negotiation with id '${id}' doest not exist in the database`);
+    }
   }
 }
