@@ -1,8 +1,12 @@
 ## todo
 
-update one product
+update one product, patch or put
 
-delete one product
+make the frontend shows something (anmation) the the users click post or update or delete 
+
+add validations for POST and PATCH
+
+process validations messages for frotend
 
 add redux
 

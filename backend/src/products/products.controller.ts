@@ -7,20 +7,19 @@ import {
   Body,
   Param,
   UseFilters,
-  BadRequestException
+  HttpCode
 } from "@nestjs/common";
-import Product from "./product.interface";
+import { Product } from "./interfaces/product.interface";
 import { ProductsService } from "./products.service";
-import ProductDto from "./product.dto";
+import { CreateProductDto } from "./dto/create-product.dto";
 import { Validator } from "class-validator";
+import { FindOneParams } from "./dto/find-one-params.dto";
 
 @Controller("/products")
 export class ProductsController {
   private validator;
 
-  constructor(private readonly productsService: ProductsService) {
-    this.validator = new Validator()
-  }
+  constructor(private readonly productsService: ProductsService) {}
 
   @Get()
   async getProducts(): Promise<Product[]> {
@@ -28,12 +27,14 @@ export class ProductsController {
   }
 
   @Post()
-  async postProduct(@Body() productDto: ProductDto) {
-    return this.productsService.postProduct(productDto);
+  async postProduct(@Body() createProductDto: CreateProductDto): Promise<Product> {
+    return this.productsService.postProduct(createProductDto);
   }
 
   @Delete(":id")
-  async deleteProduct(@Param("id") id: string): Promise<null> {
+  @HttpCode(204)
+  async deleteProduct(@Param() params: FindOneParams): Promise<null> {
+    await this.productsService.deleteProduct(params)
     return null
   } 
 }

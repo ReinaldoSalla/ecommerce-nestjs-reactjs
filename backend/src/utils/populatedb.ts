@@ -6,7 +6,7 @@ Command for running this file: npx ts-node populatedb.ts
 
 import * as mongoose from "mongoose";
 import { dbUrl, dbName } from "../properties";
-import { productSchema } from "../products/product.schema";
+import { productSchema } from "../products/schemas/product.schema";
 
 interface Product {
   category: string,

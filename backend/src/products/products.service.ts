@@ -4,9 +4,10 @@ import {
 } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import Product from "./product.interface";
-import ProductDto from "./product.dto";
+import { Product } from "./interfaces/product.interface";
+import {CreateProductDto} from "./dto/create-product.dto";
 import { routeApi } from "../properties";
+import { FindOneParams } from "./dto/find-one-params.dto";
 
 @Injectable()
 export class ProductsService {
@@ -18,22 +19,22 @@ export class ProductsService {
     return await this.productModel.find();
   }
 
-  public async postProduct(productDto: ProductDto): Promise<Product> {
+  public async postProduct(createProductDto: CreateProductDto): Promise<Product> {
     const msg: string = `POST method for route ${routeApi}/products`;
     console.log(msg);
-    const newProduct = new this.productModel(productDto);
-    return newProduct.save();
+    const newProduct = new this.productModel(createProductDto);
+    return await newProduct.save();
   }
 
-  public async deleteProduct(id: string): Promise<void> {
-    const product = await this.productModel.deleteOne({_id: id});
+  public async deleteProduct(params: FindOneParams): Promise<void> {
+    const product = await this.productModel.deleteOne({_id: params.id});
     if (product.n !== 0) {
-      const msg: string = `DELETE method for route ${routeApi}/products/${id}`;
+      const msg: string = `DELETE method for route ${routeApi}/products/${params.id}`;
       console.log(msg);
     } else {
-      const msg: string = `DELETE method for nonexistent id: ${id}`;
+      const msg: string = `DELETE method for nonexistent id: ${params.id}`;
       console.log(msg);
-      throw new NotFoundException(`Negotiation with id '${id}' doest not exist in the database`);
+      throw new NotFoundException(`Negotiation with id '${params.id}' doest not exist in the database`);
     }
   }
 }

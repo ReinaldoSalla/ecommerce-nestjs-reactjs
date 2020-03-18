@@ -1,4 +1,5 @@
-export default class ProductDto {
+
+export class CreateProductDto {
   category: string;
   subcategory: string;
   name: string;
