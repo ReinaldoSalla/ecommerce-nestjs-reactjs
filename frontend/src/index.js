@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Getter from "./components/get";
 import Poster from "./components/post";
+import Updater from "./components/patch";
 import Deleter from "./components/delete";
 
 export default class Interface extends React.Component {
@@ -10,6 +11,7 @@ export default class Interface extends React.Component {
 			<div>
 				<Getter />
 				<Poster />
+				<Updater />
 				<Deleter />
 			</div>
 		)

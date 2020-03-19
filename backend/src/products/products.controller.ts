@@ -12,12 +12,11 @@ import {
 import { Product } from "./interfaces/product.interface";
 import { ProductsService } from "./products.service";
 import { CreateProductDto } from "./dto/create-product.dto";
-import { Validator } from "class-validator";
 import { FindOneParams } from "./dto/find-one-params.dto";
+import { UpdateProductDto } from "./dto/update-product.dto";
 
 @Controller("/products")
 export class ProductsController {
-  private validator;
 
   constructor(private readonly productsService: ProductsService) {}
 
@@ -31,6 +30,14 @@ export class ProductsController {
     return this.productsService.postProduct(createProductDto);
   }
 
+  //From academind
+  @Patch(":id")
+  @HttpCode(204)
+  async patchProduct(@Param() params: FindOneParams, updateProductDto: UpdateProductDto): Promise<void> {
+    await this.productsService.patchProduct(params, updateProductDto);
+    return null
+  }
+
   @Delete(":id")
   @HttpCode(204)
   async deleteProduct(@Param() params: FindOneParams): Promise<null> {
@@ -38,3 +45,4 @@ export class ProductsController {
     return null
   } 
 }
+

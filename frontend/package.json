@@ -14,12 +14,11 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "watch": "npm -watch",
+    "watch": "npm-watch",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "watch": "npm-watch"
+    "eject": "react-scripts eject"
   },
   "watch": {
     "build": "src/"
