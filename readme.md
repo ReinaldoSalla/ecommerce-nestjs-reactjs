@@ -1,7 +1,5 @@
 ## todo
 
-update one product, patch or put
-
 add validations for POST and PATCH
 
 add redux
