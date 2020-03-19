@@ -12,7 +12,7 @@ add typescript in react
 
 create the user interface
 
-make the frontend shows something (anmation) the the users click post or update or delete 
+make the frontend shows something (anmation) the the users click post or update or delete
 
 process validations messages for frotend
 

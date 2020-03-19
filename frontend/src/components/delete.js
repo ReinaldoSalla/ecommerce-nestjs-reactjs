@@ -15,7 +15,7 @@ export default class Updater extends React.Component {
   onSubmit(event) {
     event.preventDefault();
     fetch(`http://localhost:3000/api/products/${this.state.id}`, {
-      method: "delete"
+      method: "DELETE"
     });
   }
 

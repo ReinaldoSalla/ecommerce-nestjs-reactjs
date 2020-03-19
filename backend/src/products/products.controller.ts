@@ -33,7 +33,7 @@ export class ProductsController {
   //From academind
   @Patch(":id")
   @HttpCode(204)
-  async patchProduct(@Param() params: FindOneParams, updateProductDto: UpdateProductDto): Promise<void> {
+  async patchProduct(@Param() params: FindOneParams, @Body() updateProductDto: UpdateProductDto): Promise<void> {
     await this.productsService.patchProduct(params, updateProductDto);
     return null
   }

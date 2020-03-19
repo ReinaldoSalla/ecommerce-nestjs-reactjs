@@ -38,6 +38,9 @@ export class ProductsService {
       if (updateProductDto.available) product.available = updateProductDto.available;
       if (updateProductDto.amount) product.amount = updateProductDto.amount;
       if (updateProductDto.release) product.release = updateProductDto.release;
+      const msg: string = `PATCH method for route ${routeApi}/products/${params.id}`;
+      console.log(msg);
+      product.save();
     } else {
       const msg: string = `PATCH method for nonexistent id: ${params.id}`;
       console.log(msg);
