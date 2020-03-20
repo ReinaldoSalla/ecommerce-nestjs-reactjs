@@ -2,9 +2,9 @@
 
 add validations for POST and PATCH
 
-add redux
+add react-router, or some king of routing system for multiple links
 
-add react-router
+infinite pagination in react
 
 add typescript in react
 
@@ -14,8 +14,8 @@ make the frontend shows something (anmation) the the users click post or update 
 
 process validations messages for frotend
 
-add mongo atlas
+date
 
-add docker
+add mongo atlas
 
 mk art
