@@ -4,6 +4,14 @@ add validations for POST and PATCH
 
 images in nestjs and reactjs
 
+finish reading the nestjs documentation
+
+finish reading the mdn html documentation
+
+finish reading the mdn css documentation
+
+finish reading the react documentation
+
 add typescript in react
 
 create the user interface, the simple and traditional one
