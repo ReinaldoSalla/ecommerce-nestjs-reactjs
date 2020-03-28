@@ -10,7 +10,8 @@ export default class Poster extends React.Component {
       price: 0,
       available: true,
       amount: 0,
-      release: '2010-05-01'
+      release: '2010-05-01',
+      imgUrl: "../assets/car.jpg"
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -29,7 +30,8 @@ export default class Poster extends React.Component {
       price: parseFloat(this.state.price),
       available: this.state.available,
       amount: parseInt(this.state.amount),
-      release: this.state.release
+      release: this.state.release,
+      imgUrl: this.state.imgUrl
     };
     fetch("http://localhost:3000/api/products", {
       method: "POST",

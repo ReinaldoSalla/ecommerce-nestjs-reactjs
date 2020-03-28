@@ -5,7 +5,6 @@ export default class Interface extends React.Component {
     super(props);
     this.state = { isLoading: true };
   }
-
   
   componentDidMount() {
     return fetch("http://localhost:3000/api/products")
@@ -25,7 +24,9 @@ export default class Interface extends React.Component {
     } else {
       const listItems = this.state.products.map(product => 
         <li key={product.name}> 
-          {product.category} {product.subcategory} {product.name} {product.price} {product.available} {product.amount} {product.release} 
+          {product.category} {product.subcategory} {product.name} {product.price} {product.available} {product.amount} {product.release} {product.imgUrl}
+          <br />
+          <img src={product.imgUrl} />
         </li>
       )
       return (

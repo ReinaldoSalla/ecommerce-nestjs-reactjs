@@ -7,5 +7,6 @@ export interface Product extends mongoose.Document {
   price: number,
   available: boolean,
   amount: number,
-  release: Date
+  release: Date,
+  imgUrl: string
 }

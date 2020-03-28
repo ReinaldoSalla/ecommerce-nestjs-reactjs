@@ -1,9 +1,5 @@
 ## todo
 
-add validations for POST and PATCH
-
-images in nestjs and reactjs
-
 finish reading the nestjs documentation
 
 finish reading the mdn html documentation
@@ -14,6 +10,8 @@ finish reading the react documentation
 
 add typescript in react
 
+importing products with a button and not with a script 
+
 create the user interface, the simple and traditional one
 
 create the advanced user interface, with three products poping up and infinite pagination
@@ -21,6 +19,8 @@ create the advanced user interface, with three products poping up and infinite p
 make the frontend shows something (anmation) the the users click post or update or delete
 
 process validations messages for frotend
+
+how can the user upload a image during post
 
 add react-router, or some king of routing system for multiple links
 

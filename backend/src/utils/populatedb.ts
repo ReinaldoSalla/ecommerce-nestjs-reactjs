@@ -15,7 +15,8 @@ interface Product {
   price: number,
   available: boolean,
   amount: number,
-  release: Date
+  release: Date,
+  imgUrl: string
 }
 
 class DatabaseFiller {
@@ -46,7 +47,8 @@ class DatabaseFiller {
       price: 99.99,
       available: true,
       amount: 100,
-      release: new Date(2010, 1, 1)
+      release: new Date(2010, 1, 1),
+      imgUrl: "../assets/car.jpg"
     }, {
       category: "Eletronics",
       subcategory: "Smartphones",
@@ -54,7 +56,8 @@ class DatabaseFiller {
       price: 89.99,
       available: true,
       amount: 10,
-      release: new Date(2010, 2, 1)
+      release: new Date(2010, 2, 1),
+      imgUrl: "../assets/car.jpg"
     }, {
       category: "Clothes",
       subcategory: "T-Shirts",
@@ -62,7 +65,8 @@ class DatabaseFiller {
       price: 39.99,
       available: true,
       amount: 5,
-      release: new Date(2010, 3, 1)
+      release: new Date(2010, 3, 1),
+      imgUrl: "../assets/car.jpg"
     }];
     const ProductModel = mongoose.model(collectionName, productSchema);
     for (let i =0; i < products.length; i++) {
@@ -73,7 +77,8 @@ class DatabaseFiller {
         price: products[i].price,
         available: products[i].available,
         amount: products[i].amount,
-        release: products[i].release
+        release: products[i].release,
+        imgUrl: products[i].imgUrl
       });
       product.save();
       console.log(`Inserted one product into collection '${collectionName}'' into database '${dbName}'`);

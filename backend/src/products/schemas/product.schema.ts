@@ -8,5 +8,6 @@
    available: { type: Boolean, required: true },
    amount: { type: Number, required: true },
    release: { type: Date, required: true },
+   imgUrl: { type: String, required: true}
  });
 
