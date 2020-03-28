@@ -13,7 +13,6 @@ export default class Interface extends React.Component {
 				<Poster />
 				<Updater />
 				<Deleter />
-				<img src={require("./assets/car.jpg")} />
 			</div>
 		)
 	}
