@@ -80,7 +80,9 @@ class DatabaseFiller {
         release: products[i].release,
         imgUrl: products[i].imgUrl
       });
-      product.save();
+      const x = product.save();
+      console.log("after product.save");
+      console.log(x);
       console.log(`Inserted one product into collection '${collectionName}'' into database '${dbName}'`);
     }
   }
