@@ -34,7 +34,11 @@ Authentication and autorization
 
 Integrating with payment system (stripe, paypal)
 
+create an admin page
+
 Recomendation systems with deep recurrent neural networks and TensorflowJS
+
+chatbot
 
 Using a remote database instead of a local database (Mongo Atlas)
 
