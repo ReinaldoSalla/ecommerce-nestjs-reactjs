@@ -7,20 +7,11 @@ Command for running this file: npx ts-node populatedb.ts
 import * as mongoose from "mongoose";
 import { dbName } from "../../properties";
 import { productSchema } from "../schemas/product.schema";
+import { Model } from "mongoose";
+import { Product } from "../interfaces/product.interface";
 
-interface Product {
-  category: string,
-  subcategory: string,
-  name: string,
-  price: number,
-  available: boolean,
-  amount: number,
-  release: Date,
-  imgUrl: string
-}
-
-export default async function populateDb(collectionName: string) {
-  const products: Product[] = [{
+export default async function populateDb(productModel: Model<Product>, collectionName: string) {
+  const products = [{
     category: "Electronics",
     subcategory: "Televisions",
     name: "Samsung 4K 80'",
@@ -50,7 +41,7 @@ export default async function populateDb(collectionName: string) {
   }];
   const ProductModel = mongoose.model(collectionName, productSchema);
   for (let i =0; i < products.length; i++) {
-    const product = new ProductModel({
+    const product = new productModel({
       category: products[i].category,
       subcategory: products[i].subcategory,
       name: products[i].name,
@@ -60,10 +51,7 @@ export default async function populateDb(collectionName: string) {
       release: products[i].release,
       imgUrl: products[i].imgUrl
     });
-    console.log("1");
-    const x = await product.save();
-    console.log("2");
-    console.log(x);
-    console.log(`Inserted one product into collection '${collectionName}'' into database '${dbName}'`);
+    await product.save();
+    console.log(`Inserted the product '${products[i].name}' into collection '${collectionName}' into database '${dbName}'`);
   }
 }
