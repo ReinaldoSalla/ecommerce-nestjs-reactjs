@@ -10,8 +10,6 @@ finish reading the react documentation
 
 add typescript in react
 
-importing products with a button and not with a script 
-
 create the user interface, the simple and traditional one
 
 create the advanced user interface, with three products poping up and infinite pagination
